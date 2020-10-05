@@ -34,8 +34,8 @@
 
     <p>
         Target Date:<input id="targetdate" max="2010-12-31" min="2010-01-01" name="trip-start" style="margin-left: 42px"
-                           type="date"
-                           value="2020-10-22">
+            type="date"
+            value="2020-10-22">
     </p>
 
     <p>
@@ -49,7 +49,7 @@
     </p>
 </div>
 <form>
-    <input onclick="poststuff()" type="button" value="submit request" formaction="success"/>
+    <input formaction="success" onclick="poststuff()" type="button" value="submit request"/>
 </form>
 </div>
 
@@ -58,28 +58,28 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
 
 <script type="text/javascript">
-    var poststuff = function () {
-        var requestJson = {
-            title: document.getElementById("title").value,
-            description: document.getElementById("description").value,
-            client: document.getElementById("client").value,
-            client_priority: document.getElementById("clientpriority").value,
-            target_date: document.getElementById("targetdate").value,
-            product_area: document.getElementById("productarea").value
-        }
-        console.log(requestJson);
-        document.write(requestJson);
-        var promise = $.ajax({
-            type: "POST",
-            url: "http://localhost:8080/feature-request",
-            data: JSON.stringify(requestJson),
-            contentType: "application/json; charset=utf-8",
-            dataType: "json"
-        })
-      if(promise !=null) {
-        alert("request has been successfully created", history.back())
-      }
+  var poststuff = function () {
+    var requestJson = {
+      title: document.getElementById("title").value,
+      description: document.getElementById("description").value,
+      client: document.getElementById("client").value,
+      client_priority: document.getElementById("clientpriority").value,
+      target_date: document.getElementById("targetdate").value,
+      product_area: document.getElementById("productarea").value
     }
+    console.log(requestJson);
+    document.write(requestJson);
+    var promise = $.ajax({
+      type: "POST",
+      url: "http://localhost:8080/feature-request",
+      data: JSON.stringify(requestJson),
+      contentType: "application/json; charset=utf-8",
+      dataType: "json"
+    })
+    if (promise != null) {
+      alert("request has been successfully created", history.back())
+    }
+  }
 </script>
 </body>
 </html>
