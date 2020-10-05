@@ -35,7 +35,7 @@
     <p>
         Target Date:<input id="targetdate" max="2010-12-31" min="2010-01-01" name="trip-start" style="margin-left: 42px"
                            type="date"
-                           value="2020-07-22">
+                           value="2020-10-22">
     </p>
 
     <p>
@@ -49,7 +49,8 @@
     </p>
 </div>
 <form>
-    <input onclick="poststuff()" type="button" value="submit request"/>
+    <input onclick="poststuff()" type="button" value="submit request" formaction="success"/>
+    <label id="success" name="success">request created successfully</label>
 </form>
 </div>
 
@@ -76,8 +77,9 @@
             contentType: "application/json; charset=utf-8",
             dataType: "json"
         })
-        console.log(promise);
-        document.write(promise);
+      if(promise !=null) {
+        alert("request has been successfully created")
+      }
     }
 </script>
 </body>
