@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+</head>
+<div id="wrapper">
+    <div id="header">
+        <h1>WCF Insurance feature Request</h1>
+    </div>
+    <p>
+        Title: <input id="title" style="margin-left: 83px;" type="text"/><br/><br/>
+        Description: <br/><textarea cols=20 id="description" rows=10 style="margin-left: 120px;"></textarea>
+        <br/>
+        <div>
+    <p>
+        Client:
+        <select id="client" name="client" style="margin-left: 74px;padding-left: 23px;">
+            <option value="ClientA">Client A</option>
+            <option value="ClientB">Client B</option>
+            <option value="ClientC">Client C</option>
+        </select>
+    </p>
+
+    <p>
+        Client Priority:
+        <select id="clientpriority" name="clientpriority" style="margin-left: 22px;padding-left: 57px;">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+    </p>
+
+    <p>
+        Target Date:<input id="targetdate" max="2010-12-31" min="2010-01-01" name="trip-start" style="margin-left: 42px"
+                           type="date"
+                           value="2020-07-22">
+    </p>
+
+    <p>
+        Product Area:
+        <select id="productarea" name="productarea" style="margin-left: 30px;padding-left: 14px;">
+            <option value="ProductA">Product A</option>
+            <option value="ProductB">Product B</option>
+            <option value="ProductC">Product C</option>
+            <option value="ProductD">Product D</option>
+            <option value="ProductE">Product E</option>
+            <option value="ProductF">Product F</option>
+        </select>
+    </p>
+</div>
+<form>
+    <input onclick="poststuff()" type="button" value="submit request"/>
+</form>
+</div>
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+
+<script type="text/javascript">
+    var poststuff = function () {
+        var requestJson = {
+            title: document.getElementById("title").value,
+            description: document.getElementById("description").value,
+            client: document.getElementById("client").value,
+            client_priority: document.getElementById("clientpriority").value,
+            target_date: document.getElementById("targetdate").value,
+            product_area: document.getElementById("productarea").value
+        }
+        console.log(requestJson);
+        document.write(requestJson);
+        var promise = $.ajax({
+            type: "POST",
+            url: "http://localhost:8080/feature-request",
+            data: JSON.stringify(requestJson),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json"
+        })
+        console.log(promise);
+        document.write(promise);
+    }
+</script>
+</body>
+</html>
