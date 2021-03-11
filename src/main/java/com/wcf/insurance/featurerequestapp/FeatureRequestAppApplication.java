@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableJpaRepositories
 public class FeatureRequestAppApplication {
 
-  public static void main(String[] args) {
-    SpringApplication.run(FeatureRequestAppApplication.class, args);
-  }
+    public static void main(String[] args) {
+        SpringApplication.run(FeatureRequestAppApplication.class, args);
+    }
 }

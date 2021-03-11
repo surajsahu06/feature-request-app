@@ -17,22 +17,22 @@ import javax.persistence.Id;
 @Entity(name = "feature_request")
 public class FeatureRequestEntity {
 
-  @Column
-  @GeneratedValue
-  @Id
-  private Integer id;
+    @Column
+    @GeneratedValue
+    @Id
+    private Integer id;
 
-  private String title;
+    private String title;
 
-  private String description;
+    private String description;
 
-  private String client;
+    private String client;
 
-  private Integer clientPriority;
+    private Integer clientPriority;
 
-  private String targetDate;
+    private String targetDate;
 
-  @Column(name = "product_area", nullable = false)
-  private String productArea;
+    @Column(name = "product_area", nullable = false)
+    private String productArea;
 
 }

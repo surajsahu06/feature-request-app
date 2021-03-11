@@ -5,5 +5,5 @@ import com.wcf.insurance.featurerequestapp.model.FeatureRequest;
 
 public interface FeatureRequestService {
 
-  FeatureRequestEntity createFeatureRequest(FeatureRequest featureRequest);
+    FeatureRequestEntity createFeatureRequest(FeatureRequest featureRequest);
 }
